@@ -13,12 +13,51 @@ g++ integrate.cpp -o integrate
 ```
 ./integrate
 ```
+例如：
+```cpp
+czile@Czile:~$ ./integrate 
+INTEGRATE V2.0 (C) Czile.
+Add '-h' to get help.
+请输入积分下限、积分上限：0 2
+请用C++语法描述被积函数：
+double func(double x) {
+	return sin(x);
+}
+```
 
 ## 高级模式
-运行时带上参数`-g`进入积分的高级模式，可设置`精确度`，`迭代次数`等设置项目。
+运行时带上参数`-g`进入积分的高级模式，可设置`精确度`，`迭代次数`等设置项目。  
+例如：
+```cpp
+czile@Czile:~$ ./integrate -g
+INTEGRATE V2.0 (C) Czile.
+Add '-h' to get help.
+请输入积分下限、积分上限、精确度和最高迭代次数（若无限制，则输入0）：0 2 1e-5 0
+请用C++语法描述被积函数：
+double func(double x) {
+	return sin(x);
+}
+```
 
 ## 帮助模式
-运行时带上参数`-h`进入积分的帮助模式。
+运行时带上参数`-h`进入积分的帮助模式。也即是：
+```
+./integrate -h
+```
 
 ## 带上运行库运行
-在命令行输入`./integrate 库1， 库2...`，并且按照提示输入积分下限，积分上限，以及被积函数即可。
+在命令行输入`./integrate 库1， 库2...`，并且按照提示输入积分下限，积分上限，以及被积函数即可。  
+例如：
+```cpp
+czile@Czile:~$ ./integrate time.h stdlib.h
+INTEGRATE V2.0 (C) Czile.
+Add '-h' to get help.
+请输入积分下限、积分上限：-10000 10000
+请用C++语法描述被积函数：
+#include <time.h>
+#include <stdlib.h>
+double func(double x) {
+	srand(time(0));
+	return double(1)/double(rand()+1)/x;  
+}
+```
