@@ -23,6 +23,7 @@ Add '-h' to get help.
 double func(double x) {
 	return sin(x);
 }
+1.41615
 ```
 
 ## 高级模式
@@ -37,6 +38,7 @@ Add '-h' to get help.
 double func(double x) {
 	return sin(x);
 }
+1.41615
 ```
 
 ## 帮助模式
@@ -58,6 +60,8 @@ Add '-h' to get help.
 #include <stdlib.h>
 double func(double x) {
 	srand(time(0));
-	return double(1)/double(rand()+1)/x;  
+	return double(1)/double(rand()+1)/(1+fabs(x));    
 }
+9.57641e-07
+
 ```
